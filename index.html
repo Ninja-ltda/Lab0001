@@ -1,5 +1,448 @@
 <!doctype html>
 <html lang="pt">
-<head><meta charset="utf-8"/><title>Alarmaroubo</title></head>
-<body>Site pronto para upload (versão resumida para zip de demonstração).</body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Alarmaroubo — Segurança e Proteção 24/7</title>
+  <meta name="description" content="Alarmaroubo — Serviços de segurança, alarmes, videovigilância, e controlo de acessos. Soluções certificadas pela PSP e ANEPC." />
+  
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <style>
+  :root{
+    --primary:#0A3D62;
+    --accent:#1B6CA8;
+    --muted:#CED4DA;
+    --dark:#212529;
+    --bg:#F8F9FA;
+    --alert:#F15A29; /* Laranja para CTA */
+    --success:#28a745;
+    --radius:8px;
+    --container-width:1150px;
+    --font-sans: "Open Sans", system-ui, -apple-system, sans-serif;
+    --font-head: "Raleway", sans-serif;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+  }
+
+  /* Reset & Base */
+  *{box-sizing:border-box}
+  html,body{margin:0;font-family:var(--font-sans);background:var(--bg);color:var(--dark);-webkit-font-smoothing:antialiased;scroll-behavior:smooth;}
+  
+  /* Layout */
+  .container{max-width:var(--container-width);margin:0 auto;padding:0 24px}
+  .section{padding:60px 0}
+  .section-title{font-family:var(--font-head);font-size:32px;color:var(--primary);margin-bottom:24px;position:relative;display:inline-block}
+  .section-title::after{content:'';display:block;width:60px;height:4px;background:var(--alert);margin-top:8px;border-radius:2px}
+
+  /* Header */
+  .site-header{background:#fff;box-shadow:0 2px 10px rgba(0,0,0,0.05);position:sticky;top:0;z-index:1000;padding:12px 0}
+  .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+  
+  .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--primary)}
+  .brand-text{font-family:var(--font-head);font-weight:800;font-size:22px;letter-spacing:0.5px;text-transform:uppercase}
+  .logo-svg{height:48px;width:auto}
+
+  /* Language Switcher Melhorado */
+  .lang-switch{display:flex;gap:6px;align-items:center;background:#f1f3f5;padding:4px;border-radius:6px}
+  .lang-switch .lang{
+    background:transparent;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;
+    font-weight:600;font-size:14px;color:var(--dark);display:flex;align-items:center;gap:6px;
+    transition:all 0.2s ease;
+  }
+  .lang-switch .lang:hover{background:rgba(0,0,0,0.05)}
+  .lang-switch .lang.active{background:#fff;color:var(--primary);box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+  .lang-switch .flag{font-size:16px}
+
+  /* Contactos Header */
+  .contact-quick{display:flex;gap:16px;align-items:center}
+  .contact-quick .phone{font-weight:700;color:var(--primary);text-decoration:none;font-size:15px}
+  .cta-header{background:var(--primary);color:#fff;padding:10px 18px;border-radius:var(--radius);text-decoration:none;font-weight:600;font-size:14px;transition:background 0.2s}
+  .cta-header:hover{background:var(--accent)}
+
+  /* NOVA HERO SECTION (Opção A) */
+  .hero{
+    /* Fundo com imagem e overlay escuro */
+    background: linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.75)), url('https://images.unsplash.com/photo-1558036117-15db5275d42b?auto=format&fit=crop&w=1400&q=80');
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 80px 0;
+    min-height: 600px;
+    display:flex;
+    align-items:center;
+  }
+  .hero-inner{display:flex;gap:40px;align-items:center;justify-content:space-between;width:100%}
+  .hero-copy{flex:1;max-width:600px}
+  
+  .hero-copy h1{
+    font-family:var(--font-head);
+    font-weight:800;
+    font-size:42px;
+    line-height:1.2;
+    margin:0 0 16px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  .hero-copy p.subheadline{font-size:20px;color:#e9ecef;margin:0 0 24px;line-height:1.5}
+  
+  /* Lista de Benefícios com Checks */
+  .hero-benefits{list-style:none;padding:0;margin:0 0 32px}
+  .hero-benefits li{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-size:18px;font-weight:600}
+  .hero-benefits li::before{
+    content:"✓";background:var(--alert);color:#fff;width:24px;height:24px;
+    border-radius:50%;display:flex;align-items:center;justify-content:center;
+    font-size:14px;flex-shrink:0;font-weight:bold;
+  }
+  
+  /* Formulário Hero (Lead Magnet) */
+  .hero-form-card{
+    background:#fff;padding:28px;border-radius:12px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.25);color:var(--dark);
+    width:100%;max-width:420px;animation:slideUp 0.6s ease-out;
+  }
+  .hero-form-card h3{margin:0 0 8px;color:var(--primary);text-align:center;font-family:var(--font-head)}
+  .hero-form-card p.form-sub{text-align:center;font-size:14px;color:#666;margin-bottom:20px}
+  .form-group{margin-bottom:12px}
+  .form-input{width:100%;padding:14px;border:1px solid var(--muted);border-radius:6px;background:#f8f9fa;font-size:15px;transition:border 0.2s}
+  .form-input:focus{border-color:var(--accent);outline:none;background:#fff}
+  
+  .btn-submit{
+    width:100%;background:var(--alert);color:#fff;border:none;padding:16px;
+    font-weight:800;border-radius:6px;cursor:pointer;font-size:16px;
+    text-transform:uppercase;letter-spacing:0.5px;transition:transform 0.2s, background 0.2s;
+  }
+  .btn-submit:hover{transform:translateY(-2px);background:#d94516;box-shadow:0 4px 12px rgba(241, 90, 41, 0.3)}
+  
+  .security-badges{display:flex;gap:15px;justify-content:center;margin-top:16px;font-size:12px;color:#666;font-weight:600}
+
+  /* Serviços */
+  .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
+  .service{background:#fff;padding:24px;border-radius:var(--radius);border:1px solid #eee;box-shadow:var(--shadow);transition:transform 0.2s}
+  .service:hover{transform:translateY(-5px);border-color:var(--accent)}
+  .service h3{font-family:var(--font-head);color:var(--primary);margin-top:0}
+  
+  /* Sobre & Contacto */
+  .grid-two{display:grid;grid-template-columns:1fr 380px;gap:40px}
+  .contact-card{background:#fff;padding:24px;border-radius:var(--radius);border-left:4px solid var(--primary);box-shadow:var(--shadow)}
+  .contact-card a{color:var(--accent);text-decoration:none;font-weight:600}
+  
+  /* Testemunhos (Scroll) */
+  .testimonials-wrapper{position:relative;overflow:hidden;margin-top:24px;padding:20px 0;background:#fff}
+  .testimonials-track{display:flex;gap:24px;width:max-content;animation:scroll-left 40s linear infinite}
+  .testimonial{
+    min-width:340px;max-width:380px;background:#f8f9fa;padding:24px;
+    border-radius:12px;border:1px solid #eee;position:relative;
+  }
+  .testimonial::before{content:'“';position:absolute;top:10px;left:15px;font-size:60px;color:var(--muted);opacity:0.3;font-family:serif;line-height:1}
+  .quote{font-style:italic;margin:0 0 16px;color:#495057;font-size:15px;line-height:1.6;position:relative;z-index:1}
+  .author{font-weight:700;margin:0;color:var(--primary);font-size:14px;text-align:right}
+  .testimonials-wrapper:hover .testimonials-track{animation-play-state:paused}
+  
+  /* Footer */
+  .site-footer{background:var(--primary);color:#fff;padding:40px 0;margin-top:60px;font-size:14px}
+  .footer-inner{display:flex;justify-content:space-between;align-items:center}
+  .foot-links a{color:#aabcca;text-decoration:none;margin-left:20px;transition:color 0.2s}
+  .foot-links a:hover{color:#fff}
+
+  /* Mobile */
+  @media (max-width:900px){
+    .header-inner{flex-wrap:wrap;justify-content:center;gap:12px}
+    .contact-quick{display:none} /* Ocultar contacto rápido no topo em mobile */
+    .hero-inner{flex-direction:column;text-align:center}
+    .hero-copy{margin-bottom:24px}
+    .hero-benefits li{justify-content:center}
+    .grid-two{grid-template-columns:1fr}
+    .hero-form-card{margin:0 auto}
+  }
+
+  @keyframes scroll-left{0% { transform:translateX(0); }100% { transform:translateX(-50%); }}
+  @keyframes slideUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#" aria-label="Alarmaroubo Home">
+        <svg width="40" height="40" viewBox="0 0 120 120" class="logo-svg" xmlns="http://www.w3.org/2000/svg">
+          <path d="M20 90 L50 20 L80 90 M45 60 L65 60 L78 90" fill="none" stroke="#0A3D62" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M78 90 L92 78" fill="none" stroke="#0A3D62" stroke-width="8" stroke-linecap="round"/>
+        </svg>
+        <span class="brand-text">Alarmaroubo</span>
+      </a>
+      
+      <div class="lang-switch">
+        <button class="lang active" data-lang="pt" aria-label="Português">
+          <span class="flag">🇵🇹</span> PT
+        </button>
+        <button class="lang" data-lang="en" aria-label="English">
+          <span class="flag">🇬🇧</span> EN
+        </button>
+        <button class="lang" data-lang="es" aria-label="Español">
+          <span class="flag">🇪🇸</span> ES
+        </button>
+      </div>
+
+      <div class="contact-quick">
+        <a href="tel:+351212555510" class="phone">📞 212 555 510</a>
+        <a href="#contacto" class="cta-header">Contactar</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-inner">
+        
+        <div class="hero-copy" data-i18n-key="hero">
+          <h1>Protegemos o que é seu, 24 horas por dia, há mais de 20 anos.</h1>
+          <p class="subheadline">Sistemas de segurança eletrónica com certificação oficial. Durma descansado sabendo que a Alarmaroubo vigia por si.</p>
+          
+          <ul class="hero-benefits">
+            <li>Monitorização permanente (24/7)</li>
+            <li>Instalação Certificada (PSP e ANEPC)</li>
+            <li>Resposta técnica imediata</li>
+          </ul>
+        </div>
+
+        <div class="hero-media">
+          <div class="hero-form-card">
+            <h3>Simular Orçamento Grátis</h3>
+            <p class="form-sub">Receba uma análise de segurança sem compromisso.</p>
+            
+            <form id="hero-lead-form">
+              <div class="form-group">
+                <input class="form-input" type="text" name="nome" placeholder="Nome Completo" required />
+              </div>
+              <div class="form-group">
+                <input class="form-input" type="tel" name="telefone" placeholder="Telemóvel" required />
+              </div>
+              <div class="form-group">
+                <select class="form-input" name="interesse">
+                  <option value="" disabled selected>Tenho interesse em...</option>
+                  <option value="alarme-casa">Alarme para Casa</option>
+                  <option value="alarme-empresa">Alarme para Empresa</option>
+                  <option value="cctv">Videovigilância</option>
+                  <option value="incendio">Detecção de Incêndio</option>
+                </select>
+              </div>
+              
+              <button type="submit" class="btn-submit">Pedir Simulação Agora</button>
+              
+              <div class="security-badges">
+                <span>🔒 Dados 100% Seguros</span>
+                <span>⚡ Resposta em 24h</span>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="servicos" class="section services container">
+      <h2 class="section-title" data-i18n-key="services_title">Nossas Soluções</h2>
+      <div class="service-grid">
+        <article class="service">
+          <h3>S.A.I. — Alarme de Intrusão</h3>
+          <p>Dispositivos inteligentes para detetar acessos não autorizados. Instalações certificadas (Registo n.º 3930).</p>
+        </article>
+        <article class="service">
+          <h3>S.A.D.I. — Detecção de Incêndio</h3>
+          <p>Sistemas automáticos e manutenção obrigatória por lei. Certificação A.N.E.P.C. n.º 3623.</p>
+        </article>
+        <article class="service">
+          <h3>Videovigilância (CCTV)</h3>
+          <p>Visualize o seu espaço em tempo real no telemóvel. Instalação profissional conforme a RGPD.</p>
+        </article>
+        <article class="service">
+          <h3>Ligação a Central 24h</h3>
+          <p>Em caso de disparo, a nossa central atua imediatamente e avisa as autoridades se necessário.</p>
+        </article>
+        <article class="service">
+          <h3>Detecção de Gases</h3>
+          <p>Proteção contra monóxido de carbono e fugas de gás em ambientes domésticos ou industriais.</p>
+        </article>
+        <article class="service">
+          <h3>Projetos de Segurança</h3>
+          <p>Auditoria, comercialização e instalação de extintores e planos de segurança contra incêndios.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="sobre" class="section container about">
+      <div class="grid-two">
+        <div>
+          <h2 class="section-title" data-i18n-key="about_title">Sobre a Alarmaroubo</h2>
+          <p>Não somos apenas vendedores de alarmes; somos parceiros da sua segurança. Com mais de 20 anos de mercado, o nosso estandarte é o atendimento personalizado e a rapidez de resposta.</p>
+          <p>Trabalhamos com técnicos credenciados pela PSP e ANEPC, garantindo que a sua instalação cumpre todas as normas legais em vigor.</p>
+          <p style="background:#e9ecef; padding:15px; border-radius:8px; margin-top:20px;">
+            <strong>A nossa missão:</strong> Proporcionar tranquilidade real através de tecnologia de ponta e serviço humano.
+          </p>
+        </div>
+        <aside class="contact-card" id="contacto">
+          <h3>Fale com um Humano</h3>
+          <p><strong>Telefone Fixo:</strong> <br><a href="tel:+351212555510">+351 212 555 510</a></p>
+          <p><strong>Telemóvel (Urgências):</strong> <br><a href="tel:+351969105295">+351 969 105 295</a></p>
+          <p><strong>E-mail:</strong> <a href="mailto:alarmaroubo@gmail.com">alarmaroubo@gmail.com</a></p>
+          <p><strong>Sede:</strong><br>Rua Rainha Santa Isabel, nº 9-B<br>Cova da Piedade<br>2805-169 Almada</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section container" aria-label="Depoimentos">
+      <h2 class="section-title">O que dizem os nossos clientes</h2>
+      <div class="testimonials-wrapper" id="testimonials">
+        <div class="testimonials-track">
+          <div class="testimonial">
+            <p class="quote">“Tive um problema com o código numa sexta-feira à noite e atenderam-me logo. Serviço impecável, nada a apontar.”</p>
+            <p class="author">— Carlos M., Almada</p>
+          </div>
+          <div class="testimonial">
+            <p class="quote">“Instalação muito limpa, não deixaram fios pendurados e explicaram tudo à minha mãe que tem 70 anos. Recomendo.”</p>
+            <p class="author">— Ana Sofia, Lisboa</p>
+          </div>
+          <div class="testimonial">
+            <p class="quote">“Já trabalho com eles na minha empresa há 10 anos. São gente séria e de confiança, o que hoje em dia é raro.”</p>
+            <p class="author">— Eng. Ricardo, Seixal</p>
+          </div>
+          <div class="testimonial">
+            <p class="quote">“O alarme disparou por engano meu e ligaram da central em menos de 1 minuto. Sinto-me segura.”</p>
+            <p class="author">— D. Maria de Lurdes</p>
+          </div>
+          <div class="testimonial">
+            <p class="quote">“Preço justo para a qualidade do equipamento. Não tentam vender o que a gente não precisa.”</p>
+            <p class="author">— Café Central</p>
+          </div>
+          <div class="testimonial">
+            <p class="quote">“Foram 5 estrelas. Desde o orçamento até à montagem das câmaras, tudo correu como combinado.”</p>
+            <p class="author">— João P.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section container contact-section">
+      <div class="grid-two">
+        <div>
+          <h2>Ainda tem dúvidas?</h2>
+          <p>Deixe a sua mensagem e ligamos para si.</p>
+          <form id="footer-contact-form">
+            <div class="form-group"><input class="form-input" name="nome" placeholder="Nome" required /></div>
+            <div class="form-group"><input class="form-input" name="telefone" type="tel" placeholder="Contacto Telefónico" required /></div>
+            <div class="form-group"><textarea class="form-input" name="mensagem" rows="4" placeholder="Como podemos ajudar?" required></textarea></div>
+            <button type="submit" class="btn-submit" style="width:auto; padding:12px 24px;">Enviar Mensagem</button>
+          </form>
+        </div>
+        <div style="background:var(--primary); color:#fff; padding:24px; border-radius:12px;">
+          <h3>Porquê a Alarmaroubo?</h3>
+          <ul style="line-height:2;">
+            <li>✓ Empresa 100% Portuguesa</li>
+            <li>✓ Mais de 20 anos de experiência</li>
+            <li>✓ Técnicos dos quadros da empresa</li>
+            <li>✓ Assistência técnica permanente</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>ALARMAROUBO, LDA.</strong><br>
+        <span style="opacity:0.7">Segurança Eletrónica Certificada © 2025</span>
+      </div>
+      <nav class="foot-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos e Condições</a>
+        <a href="#">Livro de Reclamações</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+  // Traduções
+  const translations = {
+    pt: {
+      hero_h1: "Protegemos o que é seu, 24 horas por dia, há mais de 20 anos.",
+      hero_sub: "Sistemas de segurança eletrónica com certificação oficial. Durma descansado sabendo que a Alarmaroubo vigia por si.",
+      services_title: "Nossas Soluções",
+      about_title: "Sobre a Alarmaroubo",
+      btn_sim: "Pedir Simulação Agora"
+    },
+    en: {
+      hero_h1: "Protecting what is yours, 24/7, for over 20 years.",
+      hero_sub: "Officially certified electronic security systems. Sleep soundly knowing Alarmaroubo is watching over you.",
+      services_title: "Our Solutions",
+      about_title: "About Alarmaroubo",
+      btn_sim: "Get a Free Quote"
+    },
+    es: {
+      hero_h1: "Protegemos lo que es suyo, 24 horas al día, desde hace 20 años.",
+      hero_sub: "Sistemas de seguridad electrónica certificados. Duerma tranquilo sabiendo que Alarmaroubo vigila por usted.",
+      services_title: "Nuestras Soluciones",
+      about_title: "Sobre Alarmaroubo",
+      btn_sim: "Solicitar Presupuesto"
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', () => {
+    // Lógica de Idiomas
+    document.querySelectorAll('.lang').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.lang').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyLanguage(btn.dataset.lang);
+      });
+    });
+
+    // Lógica dos Formulários (Mockup)
+    const handleForm = (e) => {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      const originalText = btn.innerText;
+      btn.innerText = 'Enviando...';
+      btn.style.opacity = '0.7';
+      
+      setTimeout(() => {
+        alert('Obrigado! O seu pedido foi recebido. Um técnico entrará em contacto brevemente.');
+        e.target.reset();
+        btn.innerText = originalText;
+        btn.style.opacity = '1';
+      }, 1500);
+    };
+
+    document.getElementById('hero-lead-form')?.addEventListener('submit', handleForm);
+    document.getElementById('footer-contact-form')?.addEventListener('submit', handleForm);
+
+    // Duplicar testemunhos para scroll infinito suave
+    const track = document.querySelector('.testimonials-track');
+    if(track) {
+      const clones = Array.from(track.children).map(n => n.cloneNode(true));
+      clones.forEach(n => track.appendChild(n));
+    }
+  });
+
+  function applyLanguage(lang='pt'){
+    const t = translations[lang] || translations.pt;
+    
+    // Atualizar textos gerais
+    document.querySelectorAll('[data-i18n-key]').forEach(el => {
+      const key = el.dataset.i18nKey;
+      if(key === 'hero'){
+        el.querySelector('h1').textContent = t.hero_h1;
+        el.querySelector('.subheadline').textContent = t.hero_sub;
+      } else if(t[key]){
+        el.textContent = t[key];
+      }
+    });
+
+    // Atualizar botões de formulário
+    const submitBtn = document.querySelector('#hero-lead-form button');
+    if(submitBtn) submitBtn.textContent = t.btn_sim;
+    
+    document.documentElement.lang = lang;
+  }
+  </script>
+</body>
 </html>
