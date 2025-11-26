@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Alarmaroubo — Segurança e Proteção 24/7</title>
-  <meta name="description" content="Alarmaroubo — Serviços de segurança, alarmes, videovigilância, e controlo de acessos. Soluções certificadas pela PSP e ANEPC." />
+  <title>Alarmaroubo® — Segurança Certificada 24/7 em Portugal</title>
+  <meta name="description" content="Alarmes Certificados PSP para Casa e Empresa em Portugal. Videovigilância, CCTV e Centrais de Deteção de Incêndio. Orçamento Grátis." />
   
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&family=Raleway:wght@600;700;800&display=swap" rel="stylesheet">
   
@@ -40,9 +40,10 @@
   
   .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--primary)}
   .brand-text{font-family:var(--font-head);font-weight:800;font-size:22px;letter-spacing:0.5px;text-transform:uppercase}
-  .logo-svg{height:48px;width:auto}
+  .logo-img{height:48px;width:auto; max-width: 150px; /* Ajuste se necessário */}
+  .brand-text sup {font-size: 0.5em; vertical-align: top; margin-left: 2px;}
 
-  /* Language Switcher Melhorado */
+  /* Language Switcher Melhorado com Bandeiras */
   .lang-switch{display:flex;gap:6px;align-items:center;background:#f1f3f5;padding:4px;border-radius:6px}
   .lang-switch .lang{
     background:transparent;border:none;padding:6px 12px;border-radius:4px;cursor:pointer;
@@ -59,9 +60,8 @@
   .cta-header{background:var(--primary);color:#fff;padding:10px 18px;border-radius:var(--radius);text-decoration:none;font-weight:600;font-size:14px;transition:background 0.2s}
   .cta-header:hover{background:var(--accent)}
 
-  /* NOVA HERO SECTION (Opção A) */
+  /* HERO SECTION (Conversão) */
   .hero{
-    /* Fundo com imagem e overlay escuro */
     background: linear-gradient(rgba(10, 61, 98, 0.85), rgba(10, 61, 98, 0.75)), url('https://images.unsplash.com/photo-1558036117-15db5275d42b?auto=format&fit=crop&w=1400&q=80');
     background-size: cover;
     background-position: center;
@@ -73,15 +73,7 @@
   }
   .hero-inner{display:flex;gap:40px;align-items:center;justify-content:space-between;width:100%}
   .hero-copy{flex:1;max-width:600px}
-  
-  .hero-copy h1{
-    font-family:var(--font-head);
-    font-weight:800;
-    font-size:42px;
-    line-height:1.2;
-    margin:0 0 16px;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  }
+  .hero-copy h1{font-family:var(--font-head);font-weight:800;font-size:42px;line-height:1.2;margin:0 0 16px;text-shadow: 0 2px 4px rgba(0,0,0,0.3);}
   .hero-copy p.subheadline{font-size:20px;color:#e9ecef;margin:0 0 24px;line-height:1.5}
   
   /* Lista de Benefícios com Checks */
@@ -136,6 +128,38 @@
   .quote{font-style:italic;margin:0 0 16px;color:#495057;font-size:15px;line-height:1.6;position:relative;z-index:1}
   .author{font-weight:700;margin:0;color:var(--primary);font-size:14px;text-align:right}
   .testimonials-wrapper:hover .testimonials-track{animation-play-state:paused}
+
+  /* Nova Secção de Autoridade/Certificações */
+  .authority-section {
+    background: #fff;
+    padding: 30px 0;
+    border-top: 1px solid #eee;
+    text-align: center;
+  }
+  .authority-section h3 {
+    margin-top: 0;
+    color: var(--dark);
+    font-family: var(--font-head);
+    font-weight: 700;
+  }
+  .certification-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+  .certification-logos img {
+    height: 80px; /* Tamanho ajustado para logótipos */
+    width: auto;
+    object-fit: contain;
+    opacity: 0.85;
+    transition: opacity 0.2s;
+  }
+  .certification-logos a:hover img {
+    opacity: 1;
+  }
   
   /* Footer */
   .site-footer{background:var(--primary);color:#fff;padding:40px 0;margin-top:60px;font-size:14px}
@@ -146,12 +170,13 @@
   /* Mobile */
   @media (max-width:900px){
     .header-inner{flex-wrap:wrap;justify-content:center;gap:12px}
-    .contact-quick{display:none} /* Ocultar contacto rápido no topo em mobile */
+    .contact-quick{display:none} 
     .hero-inner{flex-direction:column;text-align:center}
     .hero-copy{margin-bottom:24px}
     .hero-benefits li{justify-content:center}
     .grid-two{grid-template-columns:1fr}
     .hero-form-card{margin:0 auto}
+    .certification-logos img {height: 60px;} /* Reduzir em mobile */
   }
 
   @keyframes scroll-left{0% { transform:translateX(0); }100% { transform:translateX(-50%); }}
@@ -163,11 +188,8 @@
   <header class="site-header">
     <div class="container header-inner">
       <a class="brand" href="#" aria-label="Alarmaroubo Home">
-        <svg width="40" height="40" viewBox="0 0 120 120" class="logo-svg" xmlns="http://www.w3.org/2000/svg">
-          <path d="M20 90 L50 20 L80 90 M45 60 L65 60 L78 90" fill="none" stroke="#0A3D62" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M78 90 L92 78" fill="none" stroke="#0A3D62" stroke-width="8" stroke-linecap="round"/>
-        </svg>
-        <span class="brand-text">Alarmaroubo</span>
+        <img src="AR LOGO.jpg" alt="Logotipo Alarmaroubo, um 'A' e 'R' estilizados" class="logo-img">
+        <span class="brand-text">ALARMAROUBO<sup>®</sup></span>
       </a>
       
       <div class="lang-switch">
@@ -242,30 +264,12 @@
     <section id="servicos" class="section services container">
       <h2 class="section-title" data-i18n-key="services_title">Nossas Soluções</h2>
       <div class="service-grid">
-        <article class="service">
-          <h3>S.A.I. — Alarme de Intrusão</h3>
-          <p>Dispositivos inteligentes para detetar acessos não autorizados. Instalações certificadas (Registo n.º 3930).</p>
-        </article>
-        <article class="service">
-          <h3>S.A.D.I. — Detecção de Incêndio</h3>
-          <p>Sistemas automáticos e manutenção obrigatória por lei. Certificação A.N.E.P.C. n.º 3623.</p>
-        </article>
-        <article class="service">
-          <h3>Videovigilância (CCTV)</h3>
-          <p>Visualize o seu espaço em tempo real no telemóvel. Instalação profissional conforme a RGPD.</p>
-        </article>
-        <article class="service">
-          <h3>Ligação a Central 24h</h3>
-          <p>Em caso de disparo, a nossa central atua imediatamente e avisa as autoridades se necessário.</p>
-        </article>
-        <article class="service">
-          <h3>Detecção de Gases</h3>
-          <p>Proteção contra monóxido de carbono e fugas de gás em ambientes domésticos ou industriais.</p>
-        </article>
-        <article class="service">
-          <h3>Projetos de Segurança</h3>
-          <p>Auditoria, comercialização e instalação de extintores e planos de segurança contra incêndios.</p>
-        </article>
+        <article class="service"><h3>S.A.I. — Alarme de Intrusão</h3><p>Dispositivos interligados para detetar e prevenir acessos não autorizados. Instalações feitas por entidades certificadas (certificação n.º 3930).</p></article>
+        <article class="service"><h3>S.A.D.I. — Detecção de Incêndio</h3><p>Detectores e manutenção obrigatória por empresas registadas na A.N.E.P.C. (certificação n.º 3623).</p></article>
+        <article class="service"><h3>Videovigilância (CCTV)</h3><p>Instalação de câmaras e sistemas de gestão de vídeo por profissionais habilitados e conhecedores da legislação.</p></article>
+        <article class="service"><h3>Ligação a Central 24h</h3><p>Proteção 24/7, com processamento e acionamento de protocolos definidos para reação imediata.</p></article>
+        <article class="service"><h3>Detecção de Gases</h3><p>Soluções para deteção de monóxido de carbono e outros gases em ambientes industriais e comerciais.</p></article>
+        <article class="service"><h3>Extintores e Projetos de Segurança</h3><p>Comercialização, instalação e manutenção de extintores. Projetos de segurança contra incêndios de acordo com legislação.</p></article>
       </div>
     </section>
 
@@ -279,7 +283,7 @@
             <strong>A nossa missão:</strong> Proporcionar tranquilidade real através de tecnologia de ponta e serviço humano.
           </p>
         </div>
-        <aside class="contact-card" id="contacto">
+        <aside class="card contact-card" id="contacto">
           <h3>Fale com um Humano</h3>
           <p><strong>Telefone Fixo:</strong> <br><a href="tel:+351212555510">+351 212 555 510</a></p>
           <p><strong>Telemóvel (Urgências):</strong> <br><a href="tel:+351969105295">+351 969 105 295</a></p>
@@ -321,6 +325,21 @@
       </div>
     </section>
 
+    <section class="authority-section">
+      <div class="container">
+        <h3>Autoridade e Certificação Oficial</h3>
+        <div class="certification-logos">
+          <img src="psp3.png" alt="Entidade Instaladora de Segurança Certificada pela Polícia de Segurança Pública" title="Certificação PSP" />
+          
+          <a href="#" aria-label="Livro de Reclamações Eletrónico" target="_blank">
+            <img src="Livro2-01.png" alt="Símbolo de Livro de Reclamações Eletrónico" title="Livro de Reclamações" />
+          </a>
+          
+          <img src="https://via.placeholder.com/200x80/0A3D62/FFFFFF?text=CERTIFICADO+ANEPC" alt="Entidade Certificada ANEPC (Proteção Civil)" title="Certificação ANEPC" style="filter: grayscale(0.2);"/>
+        </div>
+      </div>
+    </section>
+
     <section class="section container contact-section">
       <div class="grid-two">
         <div>
@@ -335,7 +354,7 @@
         </div>
         <div style="background:var(--primary); color:#fff; padding:24px; border-radius:12px;">
           <h3>Porquê a Alarmaroubo?</h3>
-          <ul style="line-height:2;">
+          <ul style="line-height:2; list-style-type: none; padding: 0;">
             <li>✓ Empresa 100% Portuguesa</li>
             <li>✓ Mais de 20 anos de experiência</li>
             <li>✓ Técnicos dos quadros da empresa</li>
@@ -349,19 +368,19 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <div>
-        <strong>ALARMAROUBO, LDA.</strong><br>
+        <strong>ALARMAROUBO<sup>®</sup>, LDA.</strong><br>
         <span style="opacity:0.7">Segurança Eletrónica Certificada © 2025</span>
       </div>
       <nav class="foot-links">
         <a href="#">Política de Privacidade</a>
         <a href="#">Termos e Condições</a>
-        <a href="#">Livro de Reclamações</a>
+        <a href="#" aria-label="Livro de Reclamações" target="_blank">Livro de Reclamações</a>
       </nav>
     </div>
   </footer>
 
   <script>
-  // Traduções
+  // Traduções (Atualizadas para o novo H1)
   const translations = {
     pt: {
       hero_h1: "Protegemos o que é seu, 24 horas por dia, há mais de 20 anos.",
@@ -396,17 +415,18 @@
       });
     });
 
-    // Lógica dos Formulários (Mockup)
+    // Lógica dos Formulários (Mockup) - Agora com dois IDs
     const handleForm = (e) => {
       e.preventDefault();
-      const btn = e.target.querySelector('button');
+      const form = e.target;
+      const btn = form.querySelector('.btn-submit');
       const originalText = btn.innerText;
       btn.innerText = 'Enviando...';
       btn.style.opacity = '0.7';
       
       setTimeout(() => {
         alert('Obrigado! O seu pedido foi recebido. Um técnico entrará em contacto brevemente.');
-        e.target.reset();
+        form.reset();
         btn.innerText = originalText;
         btn.style.opacity = '1';
       }, 1500);
@@ -418,8 +438,10 @@
     // Duplicar testemunhos para scroll infinito suave
     const track = document.querySelector('.testimonials-track');
     if(track) {
-      const clones = Array.from(track.children).map(n => n.cloneNode(true));
-      clones.forEach(n => track.appendChild(n));
+      const children = Array.from(track.children);
+      if(children.length > 3) { // Só duplica se houver testemunhos suficientes
+        children.forEach(node => {const clone = node.cloneNode(true); track.appendChild(clone);});
+      }
     }
   });
 
@@ -437,8 +459,8 @@
       }
     });
 
-    // Atualizar botões de formulário
-    const submitBtn = document.querySelector('#hero-lead-form button');
+    // Atualizar botões de formulário (apenas o botão da Hero que tem tradução específica)
+    const submitBtn = document.querySelector('#hero-lead-form .btn-submit');
     if(submitBtn) submitBtn.textContent = t.btn_sim;
     
     document.documentElement.lang = lang;
